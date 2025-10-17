@@ -2,6 +2,8 @@ services:
   prometheus:
     container_name: prometheus
     image: prom/prometheus:latest
+    ports:
+      - 9090:9090
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus/data:/prometheus
@@ -12,6 +14,8 @@ services:
   loki:
     container_name: loki
     image: grafana/loki:2.9.2
+    ports:
+      - 3100:3100
     volumes:
       - ./loki/loki-config.yaml:/etc/loki/local-config.yaml
       - ./loki/data:/loki
