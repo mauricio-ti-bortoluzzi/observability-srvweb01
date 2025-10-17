@@ -5,6 +5,7 @@ services:
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./prometheus/data:/prometheus
+    restart: always
     networks:
       - monitoring
 
@@ -15,6 +16,7 @@ services:
       - ./loki/loki-config.yaml:/etc/loki/local-config.yaml
       - ./loki/data:/loki
     command: -config.file=/etc/loki/local-config.yaml
+    restart: always
     networks:
       - monitoring
 
